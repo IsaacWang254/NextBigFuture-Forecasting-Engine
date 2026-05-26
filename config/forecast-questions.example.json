@@ -1,0 +1,16 @@
+{
+  "datasetVersion": "nbf-forecasting-v0",
+  "questions": [
+    {
+      "id": "example-ai-capability-2026-05-26",
+      "question": "Will a frontier AI lab announce a generally available model that materially changes public text-generation benchmarks before 2026-06-30?",
+      "snapshotDate": "2026-05-26",
+      "resolutionDate": "2026-06-30T23:59:59Z",
+      "outcomes": ["yes", "no"],
+      "targetOutcome": "no",
+      "category": "ai",
+      "notes": "Example row for pipeline smoke tests. Replace with resolved historical questions before training.",
+      "sourceUrls": ["https://epoch.ai", "https://rss.arxiv.org/rss/cs.AI"]
+    }
+  ]
+}

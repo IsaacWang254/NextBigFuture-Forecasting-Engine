@@ -1,0 +1,135 @@
+{
+  "datasetVersion": "nbf-fermi-articles-v0",
+  "sources": [
+    {
+      "id": "profitable-ai-data-build-enduring-mobilization-18-gdp-growth",
+      "url": "https://www.nextbigfuture.com/2026/01/profitable-ai-data-build-could-be-an-enduring-mobilization-with-18-gdp-growth.html",
+      "category": "ai-economics"
+    },
+    {
+      "id": "first-principles-gdp-real-gdp-growth-massive-investment",
+      "url": "https://www.nextbigfuture.com/2026/02/first-principles-gdp-real-gdp-growth-via-massive-investment.html",
+      "category": "ai-economics"
+    },
+    {
+      "id": "spacex-xai-build-moonbase-alpha-mass-drivers",
+      "url": "https://www.nextbigfuture.com/2026/02/how-spacex-and-xai-will-build-moonbase-alpha-and-mass-drivers.html",
+      "category": "space"
+    },
+    {
+      "id": "xai-x-money-emulated-humans-mass-drivers-moon",
+      "url": "https://www.nextbigfuture.com/2026/02/crazy-xai-plans-x-money-and-emulated-humans-this-year-mass-drivers-on-the-moon.html",
+      "category": "ai-space"
+    },
+    {
+      "id": "making-clavius-moonbase-for-real",
+      "url": "https://www.nextbigfuture.com/2026/02/making-clavius-moonbase-for-real.html",
+      "category": "space"
+    },
+    {
+      "id": "china-giant-magnetic-launcher-hypersonic-space-planes",
+      "url": "https://www.nextbigfuture.com/2024/03/china-developing-giant-magnetic-launcher-for-hypersonic-space-planes.html",
+      "category": "space"
+    },
+    {
+      "id": "cement-jet-printed-buildings-on-moon",
+      "url": "https://www.nextbigfuture.com/2009/02/cement-jet-printed-buildings-on-moon.html",
+      "category": "space"
+    },
+    {
+      "id": "lunar-water-mining-1000-times-efficient",
+      "url": "https://www.nextbigfuture.com/2020/04/making-lunar-water-mining-about-1000-times-more-efficient.html",
+      "category": "space"
+    },
+    {
+      "id": "fertilizer-food-cheaper-again",
+      "url": "https://www.nextbigfuture.com/2025/02/how-fertilizer-and-food-could-become-cheaper-again.html",
+      "category": "energy-food"
+    },
+    {
+      "id": "why-food-costs-350-year-average-american-household",
+      "url": "https://www.nextbigfuture.com/2025/02/why-food-costs-350-year-for-the-average-american-household.html",
+      "category": "energy-food"
+    },
+    {
+      "id": "tesla-robotaxi-expansion-comparison-waymo",
+      "url": "https://www.nextbigfuture.com/2025/07/tesla-robotaxi-expansion-and-comparison-to-waymo.html",
+      "category": "robotaxi"
+    },
+    {
+      "id": "nvidia-robotaxi-ready-tesla-doomed",
+      "url": "https://www.nextbigfuture.com/2026/03/nvidia-robotaxi-ready-is-tesla-doomed.html",
+      "category": "robotaxi"
+    },
+    {
+      "id": "waymo-versus-tesla-robotaxi-collision-incident-data",
+      "url": "https://www.nextbigfuture.com/2025/12/waymo-versus-tesla-robotaxi-collision-and-incident-data.html",
+      "category": "robotaxi"
+    },
+    {
+      "id": "waymo-google-confirms-tesla-right-about-robotaxi",
+      "url": "https://www.nextbigfuture.com/2025/06/waymo-and-google-confirms-tesla-was-right-about-robotaxi.html",
+      "category": "robotaxi"
+    },
+    {
+      "id": "estimating-per-car-robotaxi-revenue-expenses",
+      "url": "https://www.nextbigfuture.com/2025/01/estimating-per-car-robotaxi-revenue-and-expenses.html#more-200072",
+      "category": "robotaxi"
+    },
+    {
+      "id": "pulsar-fusion",
+      "url": "https://www.nextbigfuture.com/2026/04/pulsar-fusion.html",
+      "category": "fusion"
+    },
+    {
+      "id": "spacex-static-fire-testing-all-33-engines",
+      "url": "https://www.nextbigfuture.com/2026/04/spacex-will-have-static-fire-testing-of-all-33-engines.html",
+      "category": "space"
+    },
+    {
+      "id": "tesla-autopilot-fsd-robotaxi-safety-versus-human",
+      "url": "https://www.nextbigfuture.com/2024/07/tesla-autopilot-fsd-and-robotaxi-safety-versus-human.html#more-196354",
+      "category": "robotaxi"
+    },
+    {
+      "id": "remote-cruise-employees-supporting-driverless-car",
+      "url": "https://www.nextbigfuture.com/2023/11/one-and-half-remote-cruise-employees-were-supporting-each-driverless-car.html",
+      "category": "robotaxi"
+    },
+    {
+      "id": "why-waymo-cruise-will-go-bankrupt",
+      "url": "https://www.nextbigfuture.com/2023/08/why-waymo-and-cruise-will-go-bankrupt.html#more-185979",
+      "category": "robotaxi"
+    },
+    {
+      "id": "future-of-self-driving-cars",
+      "url": "https://www.nextbigfuture.com/2022/11/the-future-of-self-driving-cars.html",
+      "category": "robotaxi"
+    },
+    {
+      "id": "35-version-3-raptor-engines-new-spacex-starship-booster",
+      "url": "https://www.nextbigfuture.com/2025/04/35-version-3-raptor-engines-on-new-spacex-starship-booster.html",
+      "category": "space"
+    },
+    {
+      "id": "recursively-self-improving-ai-unlimited-space-solar-power",
+      "url": "https://www.nextbigfuture.com/2026/03/recursively-self-improving-ai-will-have-unlimited-space-based-solar-power.html",
+      "category": "ai-space"
+    },
+    {
+      "id": "ai-opportunities",
+      "url": "https://www.nextbigfuture.com/2025/03/ai-opportunities.html",
+      "category": "ai-economics"
+    },
+    {
+      "id": "ion-drive-thrust-20kw-nuclear-reactor-2028-nasa-mars",
+      "url": "https://www.nextbigfuture.com/2026/04/four-times-the-ion-drive-thrust-with-20kw-nuclear-reactor-for-2028-nasa-mars-mission.html",
+      "category": "space"
+    },
+    {
+      "id": "stocks-winners-take-most-top-30-stock-winners-2017-2025",
+      "url": "https://www.nextbigfuture.com/2026/04/stocks-are-winners-take-most-and-who-are-the-top-30-stock-winners-from-2017-2025.html",
+      "category": "markets"
+    }
+  ]
+}

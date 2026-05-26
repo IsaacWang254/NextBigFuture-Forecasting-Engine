@@ -6,7 +6,13 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "ingest": "node dist/cli.js",
-    "dev:ingest": "tsx src/cli.ts"
+    "dev:ingest": "tsx src/cli.ts",
+    "dev:build-dataset": "node --experimental-strip-types src/forecasting/build-dataset.ts",
+    "dev:eval-uniform": "node --experimental-strip-types src/forecasting/eval-uniform.ts",
+    "dev:fetch-articles": "node --experimental-strip-types src/forecasting/fetch-articles.ts",
+    "dev:select-articles": "node --experimental-strip-types src/forecasting/select-articles.ts",
+    "dev:build-fermi-prompts": "node --experimental-strip-types src/forecasting/build-fermi-prompts.ts",
+    "dev:finalize-fermi-training": "node --experimental-strip-types src/forecasting/finalize-fermi-training.ts"
   },
   "devDependencies": {
     "@types/node": "^20.14.10",
