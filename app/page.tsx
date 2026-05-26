@@ -7,7 +7,7 @@ import { categories, categoryStats, predictions } from "../lib/predictions";
 const percent = new Intl.NumberFormat("en-US", { style: "percent", maximumFractionDigits: 0 });
 
 export default function Home() {
-  const defaultCategory = categories[0];
+  const defaultCategory = categories[0]?.id ?? "";
   const topPredictions = [...predictions].sort((a, b) => b.probability - a.probability).slice(0, 5);
 
   return (
@@ -22,6 +22,14 @@ export default function Home() {
             <Metric value={predictions.length.toString()} label="markets" />
             <Metric value={categories.length.toString()} label="domains" />
             <Metric value="20" label="fermi rows" />
+          </div>
+          <div className="mt-5 border border-line bg-field p-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-copper">Model status</p>
+            <p className="mt-2 text-sm leading-relaxed text-ink/72">
+              No trained checkpoint is running in this app yet. These forecasts are seed outputs. The prepared model target is
+              <span className="font-semibold text-ink"> meta-llama/Llama-3.2-1B</span> with LoRA rank 32 in
+              <span className="font-semibold text-ink"> tinker/nbf_forecasting/model_config.json</span>.
+            </p>
           </div>
           <div className="mt-5 space-y-4">
             <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-ink/70">Highest probabilities</h2>
@@ -41,24 +49,24 @@ export default function Home() {
           <Tabs.List className="flex gap-2 overflow-x-auto border-b border-line pb-3" aria-label="Prediction categories">
             {categories.map((category) => (
               <Tabs.Trigger
-                key={category}
-                value={category}
+                key={category.id}
+                value={category.id}
                 className="shrink-0 border border-line bg-field px-3 py-2 text-sm font-semibold text-ink/70 transition data-[state=active]:border-ink data-[state=active]:bg-ink data-[state=active]:text-paper"
               >
-                {category}
+                {category.label}
               </Tabs.Trigger>
             ))}
           </Tabs.List>
 
           {categories.map((category) => {
-            const rows = predictions.filter((prediction) => prediction.category === category);
-            const stats = categoryStats(category);
+            const rows = predictions.filter((prediction) => prediction.category === category.label);
+            const stats = categoryStats(category.label);
             return (
-              <Tabs.Content key={category} value={category} className="pt-5">
+              <Tabs.Content key={category.id} value={category.id} className="pt-5">
                 <div className="mb-5 grid gap-4 md:grid-cols-[1fr_240px_220px]">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.16em] text-copper">Category outlook</p>
-                    <h2 className="mt-2 font-display text-3xl leading-tight sm:text-4xl">{category}</h2>
+                    <h2 className="mt-2 font-display text-3xl leading-tight sm:text-4xl">{category.label}</h2>
                   </div>
                   <StatBlock label="mean probability" value={percent.format(stats.average)} />
                   <StatBlock label="net movement" value={`${stats.movement >= 0 ? "+" : ""}${Math.round(stats.movement * 100)} pts`} />
@@ -85,6 +93,22 @@ export default function Home() {
                             ))}
                           </div>
                           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-ink/70">{prediction.caveat}</p>
+                          <div className="mt-4 border-t border-line pt-3">
+                            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-ink/55">Sources</p>
+                            <div className="mt-2 flex flex-wrap gap-x-3 gap-y-2">
+                              {prediction.sources.map((source) => (
+                                <a
+                                  key={source.url}
+                                  href={source.url}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="text-sm font-semibold leading-snug text-copper underline decoration-copper/35 underline-offset-4 transition hover:text-ink"
+                                >
+                                  {source.label}
+                                </a>
+                              ))}
+                            </div>
+                          </div>
                         </div>
                         <div className="border-l-0 border-line lg:border-l lg:pl-4">
                           <div className="flex items-end justify-between">

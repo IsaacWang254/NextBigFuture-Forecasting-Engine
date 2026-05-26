@@ -9,15 +9,26 @@ export type Prediction = {
   movement: number;
   drivers: string[];
   caveat: string;
+  sources: PredictionSource[];
 };
 
-export const categories = [
-  "AI & Compute",
-  "Space Infrastructure",
-  "Robotaxi & Autonomy",
-  "Energy & Fusion",
-  "Biotech & Longevity",
-  "Defense & Industrial"
+export type PredictionSource = {
+  label: string;
+  url: string;
+};
+
+export type PredictionCategory = {
+  id: string;
+  label: string;
+};
+
+export const categories: PredictionCategory[] = [
+  { id: "ai-compute", label: "AI & Compute" },
+  { id: "space-infrastructure", label: "Space Infrastructure" },
+  { id: "robotaxi-autonomy", label: "Robotaxi & Autonomy" },
+  { id: "energy-fusion", label: "Energy & Fusion" },
+  { id: "biotech-longevity", label: "Biotech & Longevity" },
+  { id: "defense-industrial", label: "Defense & Industrial" }
 ];
 
 export const predictions: Prediction[] = [
@@ -31,7 +42,12 @@ export const predictions: Prediction[] = [
     horizon: "2028",
     movement: 0.06,
     drivers: ["hyperscaler capex", "power interconnect queues", "sovereign AI financing"],
-    caveat: "Returns on deployed compute must stay visible in cloud and ad revenue."
+    caveat: "Returns on deployed compute must stay visible in cloud and ad revenue.",
+    sources: [
+      { label: "NBF: profitable AI data build", url: "https://www.nextbigfuture.com/2026/01/profitable-ai-data-build-could-be-an-enduring-mobilization-with-18-gdp-growth.html" },
+      { label: "NBF: first-principles GDP growth", url: "https://www.nextbigfuture.com/2026/02/first-principles-gdp-real-gdp-growth-via-massive-investment.html" },
+      { label: "Epoch AI", url: "https://epoch.ai" }
+    ]
   },
   {
     id: "agent-labor",
@@ -43,7 +59,12 @@ export const predictions: Prediction[] = [
     horizon: "2027",
     movement: 0.04,
     drivers: ["agent reliability", "desktop-use benchmarks", "enterprise deployment"],
-    caveat: "Security and review costs may slow replacement of human labor."
+    caveat: "Security and review costs may slow replacement of human labor.",
+    sources: [
+      { label: "NBF: AI opportunities", url: "https://www.nextbigfuture.com/2025/03/ai-opportunities.html" },
+      { label: "Simon Willison", url: "https://simonwillison.net/" },
+      { label: "arXiv cs.AI RSS", url: "https://rss.arxiv.org/rss/cs.AI" }
+    ]
   },
   {
     id: "starship-cadence",
@@ -55,7 +76,12 @@ export const predictions: Prediction[] = [
     horizon: "2028",
     movement: 0.08,
     drivers: ["booster reuse", "FAA cadence", "Raptor reliability"],
-    caveat: "One major mishap or environmental review can reset the schedule."
+    caveat: "One major mishap or environmental review can reset the schedule.",
+    sources: [
+      { label: "NBF: 35 V3 Raptor engines", url: "https://www.nextbigfuture.com/2025/04/35-version-3-raptor-engines-on-new-spacex-starship-booster.html" },
+      { label: "NBF: 33-engine static fire", url: "https://www.nextbigfuture.com/2026/04/spacex-will-have-static-fire-testing-of-all-33-engines.html" },
+      { label: "SpaceX", url: "https://x.com/SpaceX" }
+    ]
   },
   {
     id: "moon-industrial",
@@ -67,7 +93,12 @@ export const predictions: Prediction[] = [
     horizon: "2030",
     movement: 0.02,
     drivers: ["surface power", "robotic construction", "customer demand"],
-    caveat: "Launch economics alone do not prove surface operations."
+    caveat: "Launch economics alone do not prove surface operations.",
+    sources: [
+      { label: "NBF: Moonbase Alpha", url: "https://www.nextbigfuture.com/2026/02/how-spacex-and-xai-will-build-moonbase-alpha-and-mass-drivers.html" },
+      { label: "NBF: Clavius moonbase", url: "https://www.nextbigfuture.com/2026/02/making-clavius-moonbase-for-real.html" },
+      { label: "NASA NIAC", url: "https://www.nasa.gov/niac-funded-studies/" }
+    ]
   },
   {
     id: "tesla-robotaxi-scale",
@@ -79,7 +110,12 @@ export const predictions: Prediction[] = [
     horizon: "2027",
     movement: 0.05,
     drivers: ["safety data", "remote intervention rate", "state approvals"],
-    caveat: "Expansion must show low support labor per active vehicle."
+    caveat: "Expansion must show low support labor per active vehicle.",
+    sources: [
+      { label: "NBF: Tesla robotaxi expansion", url: "https://www.nextbigfuture.com/2025/07/tesla-robotaxi-expansion-and-comparison-to-waymo.html" },
+      { label: "NBF: Tesla safety vs human", url: "https://www.nextbigfuture.com/2024/07/tesla-autopilot-fsd-and-robotaxi-safety-versus-human.html#more-196354" },
+      { label: "Tesla", url: "https://x.com/Tesla" }
+    ]
   },
   {
     id: "waymo-economics",
@@ -91,7 +127,12 @@ export const predictions: Prediction[] = [
     horizon: "2027",
     movement: -0.01,
     drivers: ["utilization", "vehicle cost", "remote operations"],
-    caveat: "Gross margin disclosure may remain opaque."
+    caveat: "Gross margin disclosure may remain opaque.",
+    sources: [
+      { label: "NBF: Waymo vs Tesla data", url: "https://www.nextbigfuture.com/2025/12/waymo-versus-tesla-robotaxi-collision-and-incident-data.html" },
+      { label: "NBF: Why Waymo and Cruise will go bankrupt", url: "https://www.nextbigfuture.com/2023/08/why-waymo-and-cruise-will-go-bankrupt.html#more-185979" },
+      { label: "NBF: remote Cruise employees", url: "https://www.nextbigfuture.com/2023/11/one-and-half-remote-cruise-employees-were-supporting-each-driverless-car.html" }
+    ]
   },
   {
     id: "fusion-pilot",
@@ -103,7 +144,11 @@ export const predictions: Prediction[] = [
     horizon: "2030",
     movement: 0.03,
     drivers: ["plasma performance", "materials lifetime", "funding milestones"],
-    caveat: "Single-shot physics results are not equivalent to plant economics."
+    caveat: "Single-shot physics results are not equivalent to plant economics.",
+    sources: [
+      { label: "NBF: Pulsar Fusion", url: "https://www.nextbigfuture.com/2026/04/pulsar-fusion.html" },
+      { label: "Fusion Industry Association reports", url: "https://www.fusionindustryassociation.org/fusion-industry-reports/" }
+    ]
   },
   {
     id: "space-solar-ai",
@@ -115,7 +160,11 @@ export const predictions: Prediction[] = [
     horizon: "2032",
     movement: 0.02,
     drivers: ["launch cost", "thermal management", "orbital assembly"],
-    caveat: "Terrestrial power alternatives may stay cheaper longer."
+    caveat: "Terrestrial power alternatives may stay cheaper longer.",
+    sources: [
+      { label: "NBF: space solar for AI", url: "https://www.nextbigfuture.com/2026/03/recursively-self-improving-ai-will-have-unlimited-space-based-solar-power.html" },
+      { label: "NBF: AI data build", url: "https://www.nextbigfuture.com/2026/01/profitable-ai-data-build-could-be-an-enduring-mobilization-with-18-gdp-growth.html" }
+    ]
   },
   {
     id: "longevity-trials",
@@ -127,7 +176,12 @@ export const predictions: Prediction[] = [
     horizon: "2029",
     movement: 0.01,
     drivers: ["clinical endpoints", "biomarker validity", "capital availability"],
-    caveat: "Biomarker movement can overstate real healthspan effects."
+    caveat: "Biomarker movement can overstate real healthspan effects.",
+    sources: [
+      { label: "Aging Biotech companies", url: "https://agingbiotech.info/companies/" },
+      { label: "Aging Biotech therapeutics", url: "https://agingbiotech.info/therapeutics/" },
+      { label: "InsideTracker blog", url: "https://blog.insidetracker.com/" }
+    ]
   },
   {
     id: "defense-autonomy",
@@ -139,13 +193,20 @@ export const predictions: Prediction[] = [
     horizon: "2028",
     movement: 0.07,
     drivers: ["DIU programs", "drone attrition lessons", "software-defined procurement"],
-    caveat: "Procurement speed remains the dominant institutional bottleneck."
+    caveat: "Procurement speed remains the dominant institutional bottleneck.",
+    sources: [
+      { label: "DIU", url: "https://www.diu.mil/" },
+      { label: "AFRL News", url: "https://www.afrl.af.mil/News/" },
+      { label: "Anduril", url: "https://x.com/anduriltech" }
+    ]
   }
 ];
 
-export function categoryStats(category: string) {
-  const rows = predictions.filter((prediction) => prediction.category === category);
-  const average = rows.reduce((sum, prediction) => sum + prediction.probability, 0) / rows.length;
+export function categoryStats(categoryLabel: string) {
+  const rows = predictions.filter((prediction) => prediction.category === categoryLabel);
+  const average = rows.length
+    ? rows.reduce((sum, prediction) => sum + prediction.probability, 0) / rows.length
+    : 0;
   const movement = rows.reduce((sum, prediction) => sum + prediction.movement, 0);
   return {
     count: rows.length,

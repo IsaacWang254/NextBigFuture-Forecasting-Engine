@@ -137,6 +137,15 @@ The Tinker preparation files live in `tinker/nbf_forecasting/`:
 - `reward_spec.json`: strict JSON probability forecast reward shape.
 - `README.md`: SFT-then-RL training flow in the same spirit as the golf predictor.
 
+There is no trained model checkpoint in this repo yet. The current model target is a prepared 1B-class Tinker run:
+
+- base model: `meta-llama/Llama-3.2-1B`
+- adapter: LoRA rank 32
+- planned checkpoint name: `nbf-fermi-forecasting-1b`
+- training data: `data/articles/fermi-sft.jsonl`
+
+The dashboard currently displays seed predictions from `lib/predictions.ts`, not live model inference.
+
 The current filled article dataset contains:
 
 - 26 fetched article artifacts.

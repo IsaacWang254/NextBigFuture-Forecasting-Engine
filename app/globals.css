@@ -11,8 +11,8 @@
   --copper: 58% 0.14 48;
   --moss: 46% 0.09 137;
   --warning: 64% 0.15 78;
-  --font-sans: "Avenir Next", "Segoe UI", sans-serif;
-  --font-display: "Iowan Old Style", "Palatino", serif;
+  --font-sans: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
 * {
@@ -21,6 +21,8 @@
 
 body {
   margin: 0;
+  background: #f4efe4;
+  color: #342f26;
   background:
     linear-gradient(90deg, oklch(var(--line) / 0.22) 1px, transparent 1px) 0 0 / 64px 64px,
     linear-gradient(0deg, oklch(var(--line) / 0.16) 1px, transparent 1px) 0 0 / 64px 64px,

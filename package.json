@@ -7,6 +7,7 @@
     "build": "tsc -p tsconfig.pipeline.json",
     "web:dev": "next dev",
     "web:build": "next build",
+    "web:start": "next start",
     "ingest": "node dist/cli.js",
     "dev:ingest": "tsx src/cli.ts",
     "dev:build-dataset": "node --experimental-strip-types src/forecasting/build-dataset.ts",

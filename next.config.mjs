@@ -5,7 +5,8 @@ const projectRoot = dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  typedRoutes: true,
+  typedRoutes: false,
+  devIndicators: false,
   outputFileTracingRoot: projectRoot
 };
 

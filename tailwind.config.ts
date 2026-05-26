@@ -6,7 +6,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui"],
-        display: ["var(--font-display)", "ui-serif", "Georgia"]
+        display: ["var(--font-display)", "ui-sans-serif", "system-ui"]
       },
       colors: {
         ink: "oklch(var(--ink) / <alpha-value>)",

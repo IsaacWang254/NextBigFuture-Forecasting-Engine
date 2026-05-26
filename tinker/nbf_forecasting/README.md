@@ -13,6 +13,8 @@ This handoff mirrors the golf-forecasting pattern: start with supervised user/as
 
 `model_config.json` uses `meta-llama/Llama-3.2-1B` with LoRA rank 32 as the 1B-class starting point. The Tinker docs and package examples show this base model and LoRA setup as a minimal training primitive.
 
+There is not a trained checkpoint in this repository yet. The current repository state prepares the data, prompt shape, reward spec, and model configuration needed to launch that training run once `TINKER_API_KEY` and the Tinker runtime are available.
+
 ## Training Shape
 
 1. Run SFT on `fermi-sft.jsonl` so the model learns the desired user/agent reasoning style.
@@ -35,3 +37,23 @@ uv pip install tinker-cookbook
 ```
 
 Then port `data/articles/fermi-sft.jsonl` and `reward_spec.json` into a local Tinker cookbook supervised/RL recipe.
+
+## Does It Run Now?
+
+Locally, the TypeScript data pipeline and Next dashboard run now. The model itself does not run locally because no trained `nbf-fermi-forecasting-1b` checkpoint has been produced yet.
+
+Current runnable pieces:
+
+```bash
+npm run build
+npm run web:build
+npm run web:start -- --hostname 127.0.0.1 --port 3000
+node --experimental-strip-types src/forecasting/finalize-fermi-training.ts --examples data/articles/fermi-examples.jsonl --output data/articles/fermi-sft.jsonl
+```
+
+Training still requires a Tinker launch script adapted from the cookbook recipe plus credentials:
+
+```bash
+export TINKER_API_KEY=...
+# then run the cookbook-style training script using model_config.json
+```
