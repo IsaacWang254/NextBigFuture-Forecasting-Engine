@@ -1,6 +1,7 @@
 node_modules/
 dist/
+.next/
 data/raw/
 data/forecasting/
-data/articles/
+data/articles/raw-html/
 *.log

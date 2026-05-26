@@ -1,0 +1,20 @@
+{
+  "name": "nbf_probability_forecast_reward",
+  "responseFormat": {
+    "type": "json",
+    "schema": {
+      "outcome_probs": {
+        "description": "Map from allowed outcome label to probability.",
+        "type": "object"
+      }
+    }
+  },
+  "primaryReward": "-log_loss",
+  "secondaryMetrics": ["brier", "target_probability", "format_valid", "unknown_probability_mass"],
+  "rules": [
+    "Reject responses that do not parse as JSON.",
+    "Normalize known outcome probabilities after assigning unknown labels to unknown_probability_mass.",
+    "Use the resolved target outcome only for reward calculation, never in the prompt.",
+    "Keep heldout examples frozen once created."
+  ]
+}

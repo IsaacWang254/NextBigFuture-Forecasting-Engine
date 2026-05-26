@@ -118,10 +118,50 @@ The generated request asks for strict JSON with:
 After an LLM fills `data/articles/fermi-examples.jsonl`, finalize chat-style SFT rows:
 
 ```bash
+npm run dev:generate-fermi-examples -- \
+  --articles data/articles/selected-articles.jsonl \
+  --output data/articles/fermi-examples.jsonl
+
 npm run dev:finalize-fermi-training -- \
   --examples data/articles/fermi-examples.jsonl \
   --output data/articles/fermi-sft.jsonl
 ```
+
+`dev:generate-fermi-examples` creates deterministic draft rows from article evidence. Use a stronger LLM on `fermi-transform-requests.jsonl` to replace or improve those rows when you want higher-quality supervised data.
+
+## Tinker Handoff
+
+The Tinker preparation files live in `tinker/nbf_forecasting/`:
+
+- `model_config.json`: 1B-class base model, LoRA rank, dataset paths, and checkpoint name.
+- `reward_spec.json`: strict JSON probability forecast reward shape.
+- `README.md`: SFT-then-RL training flow in the same spirit as the golf predictor.
+
+The current filled article dataset contains:
+
+- 26 fetched article artifacts.
+- 20 selected high-reasoning articles.
+- 20 Fermi transformation requests.
+- 20 filled Fermi examples.
+- 20 user/assistant SFT rows.
+
+## Prediction Web App
+
+The app is a Next.js, Radix, and Tailwind forecast console for major technology categories represented in the source list.
+
+```bash
+npm run web:dev
+npm run web:build
+```
+
+The dashboard currently covers:
+
+- AI & Compute
+- Space Infrastructure
+- Robotaxi & Autonomy
+- Energy & Fusion
+- Biotech & Longevity
+- Defense & Industrial
 
 Each question manifest row names the context snapshot date and the resolved target:
 

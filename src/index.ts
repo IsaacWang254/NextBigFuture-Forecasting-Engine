@@ -8,6 +8,7 @@ export { evalUniformBaseline } from "./forecasting/eval-uniform.ts";
 export { fetchArticles } from "./forecasting/fetch-articles.ts";
 export { selectArticles } from "./forecasting/select-articles.ts";
 export { buildFermiPrompts } from "./forecasting/build-fermi-prompts.ts";
+export { generateFermiExamples } from "./forecasting/generate-fermi-examples.ts";
 export { finalizeFermiTraining } from "./forecasting/finalize-fermi-training.ts";
 export { buildArticleTransformRequest, renderArticleTransformPrompt, renderTrainingMessages } from "./forecasting/article-prompts.ts";
 export type {
