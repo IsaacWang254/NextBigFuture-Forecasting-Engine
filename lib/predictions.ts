@@ -4,13 +4,17 @@ export type Prediction = {
   industry: string;
   question: string;
   probability: number;
+  priorProbability: number;
   confidence: "low" | "medium" | "high";
   horizon: string;
-  movement: number;
   drivers: string[];
   caveat: string;
   sources: PredictionSource[];
 };
+
+export function movement(prediction: Prediction): number {
+  return prediction.probability - prediction.priorProbability;
+}
 
 export type PredictionSource = {
   label: string;
@@ -37,10 +41,10 @@ export const predictions: Prediction[] = [
     category: "AI & Compute",
     industry: "AI data centers",
     question: "AI infrastructure capex remains above $1T/year globally through 2028",
-    probability: 0.68,
+    probability: 0.78,
+    priorProbability: 0.74,
     confidence: "medium",
     horizon: "2028",
-    movement: 0.06,
     drivers: ["hyperscaler capex", "power interconnect queues", "sovereign AI financing"],
     caveat: "Returns on deployed compute must stay visible in cloud and ad revenue.",
     sources: [
@@ -54,10 +58,10 @@ export const predictions: Prediction[] = [
     category: "AI & Compute",
     industry: "white-collar automation",
     question: "AI agents automate at least 20% of routine software and office workflows",
-    probability: 0.61,
-    confidence: "medium",
+    probability: 0.51,
+    priorProbability: 0.48,
+    confidence: "low",
     horizon: "2027",
-    movement: 0.04,
     drivers: ["agent reliability", "desktop-use benchmarks", "enterprise deployment"],
     caveat: "Security and review costs may slow replacement of human labor.",
     sources: [
@@ -71,10 +75,10 @@ export const predictions: Prediction[] = [
     category: "Space Infrastructure",
     industry: "launch",
     question: "Starship reaches 50+ orbital-class launches in a calendar year",
-    probability: 0.46,
+    probability: 0.32,
+    priorProbability: 0.38,
     confidence: "low",
     horizon: "2028",
-    movement: 0.08,
     drivers: ["booster reuse", "FAA cadence", "Raptor reliability"],
     caveat: "One major mishap or environmental review can reset the schedule.",
     sources: [
@@ -88,10 +92,10 @@ export const predictions: Prediction[] = [
     category: "Space Infrastructure",
     industry: "lunar construction",
     question: "A credible lunar construction or resource demo operates on the Moon",
-    probability: 0.34,
+    probability: 0.30,
+    priorProbability: 0.22,
     confidence: "low",
     horizon: "2030",
-    movement: 0.02,
     drivers: ["surface power", "robotic construction", "customer demand"],
     caveat: "Launch economics alone do not prove surface operations.",
     sources: [
@@ -105,10 +109,10 @@ export const predictions: Prediction[] = [
     category: "Robotaxi & Autonomy",
     industry: "autonomous mobility",
     question: "Tesla operates paid robotaxi service in three or more US metros",
-    probability: 0.57,
-    confidence: "medium",
+    probability: 0.82,
+    priorProbability: 0.62,
+    confidence: "high",
     horizon: "2027",
-    movement: 0.05,
     drivers: ["safety data", "remote intervention rate", "state approvals"],
     caveat: "Expansion must show low support labor per active vehicle.",
     sources: [
@@ -122,10 +126,10 @@ export const predictions: Prediction[] = [
     category: "Robotaxi & Autonomy",
     industry: "autonomous mobility",
     question: "Waymo reports city-level positive gross margin",
-    probability: 0.52,
+    probability: 0.66,
+    priorProbability: 0.58,
     confidence: "medium",
     horizon: "2027",
-    movement: -0.01,
     drivers: ["utilization", "vehicle cost", "remote operations"],
     caveat: "Gross margin disclosure may remain opaque.",
     sources: [
@@ -139,10 +143,10 @@ export const predictions: Prediction[] = [
     category: "Energy & Fusion",
     industry: "fusion",
     question: "A private fusion company demonstrates repeatable power-plant-relevant net gain",
-    probability: 0.29,
+    probability: 0.24,
+    priorProbability: 0.18,
     confidence: "low",
     horizon: "2030",
-    movement: 0.03,
     drivers: ["plasma performance", "materials lifetime", "funding milestones"],
     caveat: "Single-shot physics results are not equivalent to plant economics.",
     sources: [
@@ -155,10 +159,10 @@ export const predictions: Prediction[] = [
     category: "Energy & Fusion",
     industry: "space power",
     question: "Space-based solar becomes a credible AI data-center power path",
-    probability: 0.24,
+    probability: 0.28,
+    priorProbability: 0.12,
     confidence: "low",
     horizon: "2032",
-    movement: 0.02,
     drivers: ["launch cost", "thermal management", "orbital assembly"],
     caveat: "Terrestrial power alternatives may stay cheaper longer.",
     sources: [
@@ -171,10 +175,10 @@ export const predictions: Prediction[] = [
     category: "Biotech & Longevity",
     industry: "aging therapeutics",
     question: "A longevity therapeutic posts convincing human efficacy in an age-linked indication",
-    probability: 0.41,
-    confidence: "medium",
+    probability: 0.35,
+    priorProbability: 0.32,
+    confidence: "low",
     horizon: "2029",
-    movement: 0.01,
     drivers: ["clinical endpoints", "biomarker validity", "capital availability"],
     caveat: "Biomarker movement can overstate real healthspan effects.",
     sources: [
@@ -188,10 +192,10 @@ export const predictions: Prediction[] = [
     category: "Defense & Industrial",
     industry: "autonomous systems",
     question: "Autonomous defense platforms become a top-three procurement growth category",
-    probability: 0.64,
-    confidence: "medium",
+    probability: 0.86,
+    priorProbability: 0.72,
+    confidence: "high",
     horizon: "2028",
-    movement: 0.07,
     drivers: ["DIU programs", "drone attrition lessons", "software-defined procurement"],
     caveat: "Procurement speed remains the dominant institutional bottleneck.",
     sources: [
@@ -207,10 +211,10 @@ export function categoryStats(categoryLabel: string) {
   const average = rows.length
     ? rows.reduce((sum, prediction) => sum + prediction.probability, 0) / rows.length
     : 0;
-  const movement = rows.reduce((sum, prediction) => sum + prediction.movement, 0);
+  const movementTotal = rows.reduce((sum, prediction) => sum + movement(prediction), 0);
   return {
     count: rows.length,
     average,
-    movement
+    movement: movementTotal
   };
 }

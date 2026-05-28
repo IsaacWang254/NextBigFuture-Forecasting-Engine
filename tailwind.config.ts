@@ -5,25 +5,25 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui"],
-        display: ["var(--font-display)", "ui-sans-serif", "system-ui"]
+        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui"],
+        serif: ["var(--font-eb-garamond)", "ui-serif", "Georgia", "serif"],
       },
       colors: {
-        ink: "oklch(var(--ink) / <alpha-value>)",
-        paper: "oklch(var(--paper) / <alpha-value>)",
-        field: "oklch(var(--field) / <alpha-value>)",
-        line: "oklch(var(--line) / <alpha-value>)",
-        signal: "oklch(var(--signal) / <alpha-value>)",
-        copper: "oklch(var(--copper) / <alpha-value>)",
-        moss: "oklch(var(--moss) / <alpha-value>)",
-        warning: "oklch(var(--warning) / <alpha-value>)"
+        azure: {
+          DEFAULT: "rgb(0, 136, 255)",
+          50: "rgba(0, 136, 255, 0.05)",
+          100: "rgba(0, 136, 255, 0.10)",
+          200: "rgba(0, 136, 255, 0.30)",
+          600: "rgb(0, 136, 255)",
+          700: "rgb(0, 120, 230)",
+        },
       },
       boxShadow: {
-        panel: "0 18px 60px rgb(45 42 36 / 0.08)"
-      }
-    }
+        card: "0 1px 2px rgb(15 23 42 / 0.04), 0 1px 3px rgb(15 23 42 / 0.06)",
+      },
+    },
   },
-  plugins: []
+  plugins: [],
 };
 
 export default config;

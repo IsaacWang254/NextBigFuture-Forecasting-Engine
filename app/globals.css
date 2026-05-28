@@ -3,32 +3,28 @@
 @tailwind utilities;
 
 :root {
-  --ink: 24% 0.025 72;
-  --paper: 97% 0.018 82;
-  --field: 93% 0.019 78;
-  --line: 82% 0.022 78;
-  --signal: 58% 0.145 153;
-  --copper: 58% 0.14 48;
-  --moss: 46% 0.09 137;
-  --warning: 64% 0.15 78;
-  --font-sans: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  --font-display: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --background: 0 0% 100%;
+  --foreground: 0 0% 14.5%;
+  --muted: 0 0% 97%;
+  --muted-foreground: 0 0% 45%;
+  --border: 0 0% 92%;
+  --card: 0 0% 100%;
+  --azure: 210 100% 50%;
+  --azure-soft: 210 100% 95%;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
-  background: #f4efe4;
-  color: #342f26;
-  background:
-    linear-gradient(90deg, oklch(var(--line) / 0.22) 1px, transparent 1px) 0 0 / 64px 64px,
-    linear-gradient(0deg, oklch(var(--line) / 0.16) 1px, transparent 1px) 0 0 / 64px 64px,
-    oklch(var(--paper));
-  color: oklch(var(--ink));
-  font-family: var(--font-sans);
+  background: #ffffff;
+  color: #1f2937;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 button,
@@ -37,5 +33,9 @@ a {
 }
 
 ::selection {
-  background: oklch(var(--warning) / 0.35);
+  background: rgba(0, 136, 255, 0.18);
+}
+
+.font-serif {
+  font-family: var(--font-eb-garamond), ui-serif, Georgia, serif;
 }
